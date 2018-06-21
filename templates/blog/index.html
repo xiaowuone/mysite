@@ -1,4 +1,37 @@
 {% extends 'blog/base.html' %}
+<style>
+.pagination {margin-top: 25px; text-align: center;}
+.pagination a {
+  display: inline-block;
+  line-height: 38px;
+  padding: 0 15px;
+  margin-right: 4px;
+  text-align: center;
+  background-color: #fff;
+  user-select: none;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #d7dde4;
+  border-radius: 4px;
+  transition: all .2s ease-in-out;
+}
+.pagination a:hover {
+  color: #A161BF;
+  border: 1px solid #A161BF;
+}
+.pagination .current-page {color: white; background-color: #A161BF;}
+.pagination .current-page:hover {
+  color: white;
+  border: 1px solid #A161BF;
+}
+.pagination span {
+  display: inline-block;
+  font-size: 20px;
+  line-height: 38px;
+  padding: 0 8px;
+  margin-right: 4px;
+}
+</style>
 
 {% block main %}
             
@@ -66,7 +99,7 @@
         <a href="?page={{ i }}">{{ i }}</a>
     {% endfor %}
   {% endif %}
-  <a href="?page={{ page_obj.number }}" style="color: red">{{ page_obj.number }}</a>
+  <a class="current-page" href="?page={{ page_obj.number }}" style="color: red">{{ page_obj.number }}</a>
   {% if right %}
     {% for i in right %}
         <a href="?page={{ i }}">{{ i }}</a>
